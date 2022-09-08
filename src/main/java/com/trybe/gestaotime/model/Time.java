@@ -22,11 +22,11 @@ public class Time {
    * Atributos.
    **/
   @Id
-  @Column(name = "id", nullable = false)
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "nome", nullable = false)
+  @Column(name = "nome")
   private String nome;
 
   @OneToMany(mappedBy = "time", cascade = {CascadeType.PERSIST, CascadeType.MERGE})

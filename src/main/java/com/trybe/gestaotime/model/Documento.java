@@ -19,17 +19,17 @@ public class Documento {
    * Atributos.
    */
   @Id
-  @Column(name = "id", nullable = false)
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "numeroCarteiraTrabalho", nullable = false)
+  @Column(name = "numeroCarteiraTrabalho")
   private String numeroCarteiraTrabalho;
 
-  @Column(name = "cpf", nullable = false)
+  @Column(name = "cpf")
   private String cpf;
 
-  @Column(name = "numeroCbf", nullable = false)
+  @Column(name = "numeroCbf")
   private String numeroCbf;
 
   @OneToOne(mappedBy = "documento")

@@ -22,14 +22,14 @@ public class Jogador {
    * Atributos.
    */
   @Id
-  @Column(name = "id", nullable = false)
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "nome", nullable = false)
+  @Column(name = "nome")
   private String nome;
 
-  @Column(name = "posicao", nullable = false)
+  @Column(name = "posicao")
   private String posicao;
 
   @OneToOne(cascade = CascadeType.ALL)

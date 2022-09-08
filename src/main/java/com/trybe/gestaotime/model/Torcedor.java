@@ -3,30 +3,32 @@ package com.trybe.gestaotime.model;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  * Classe Torcedor.
  **/
 
 @Entity
+@Table(name = "Torcedor")
 public class Torcedor {
 
   /**
    * Atributos.
    **/
   @Id
-  @Column(name = "id", nullable = false)
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "nome", nullable = false)
+  @Column(name = "nome")
   private String nome;
 
-  @ManyToMany(mappedBy = "times")
+  @ManyToMany(mappedBy = "torcedores")
   private List<Time> times;
 
   /**
