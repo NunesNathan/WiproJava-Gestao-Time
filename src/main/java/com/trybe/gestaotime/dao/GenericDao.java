@@ -10,14 +10,15 @@ import javax.persistence.Persistence;
  **/
 
 public abstract class GenericDao<T, I extends Serializable> {
-  EntityManagerFactory emf =
-          Persistence.createEntityManagerFactory("com.trybe.acc.java.hibernate.datacenter");
+  protected EntityManagerFactory emf = Persistence.createEntityManagerFactory("crudHibernatePU");
 
-  abstract void salvar(T s);
+  public abstract void salvar(T t);
 
-  abstract void editar(T s);
 
-  abstract void deletar(I id);
+  public abstract void editar(T s);
 
-  abstract List<T> listar();
+
+  public abstract void deletar(Long id);
+
+  public abstract List<T> listar();
 }
