@@ -3,26 +3,47 @@ package com.trybe.gestaotime.dao;
 import com.trybe.gestaotime.model.Time;
 
 import java.util.List;
+import javax.persistence.EntityManager;
 
-public class TimeDao extends GenericDao<Time, Integer> {
+public class TimeDao extends GenericDao<Time, Long> {
 
   @Override
-  void salvar(Time s) {
+  public void salvar(Time t) {
+    EntityManager em = emf.createEntityManager();
 
+    em.getTransaction().begin();
+    em.persist(t);
+    em.getTransaction().commit();
+
+    em.close();
   }
 
   @Override
-  void editar(Time s) {
+  public void editar(Time t) {
+    EntityManager em = emf.createEntityManager();
 
+    em.getTransaction().begin();
+    em.merge(t);
+    em.getTransaction().commit();
+
+    em.close();
   }
 
   @Override
-  void deletar(Integer id) {
+  public void deletar(Long id) {
+    EntityManager em = emf.createEntityManager();
 
+    em.getTransaction().begin();
+    em.remove(em.find(Time.class, id));
+    em.getTransaction().commit();
+
+    em.close();
   }
 
   @Override
-  List<Time> listar() {
-    return null;
+  public List<Time> listar() {
+    EntityManager em = emf.createEntityManager();
+
+    return em.createQuery("SELECT T FROM Time T", Time.class).getResultList();
   }
 }
