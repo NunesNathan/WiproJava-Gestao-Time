@@ -32,7 +32,7 @@ public class Documento {
   @Column(name = "numeroCbf")
   private String numeroCbf;
 
-  @OneToOne(mappedBy = "documento")
+  @OneToOne
   private Jogador jogador;
 
   /**

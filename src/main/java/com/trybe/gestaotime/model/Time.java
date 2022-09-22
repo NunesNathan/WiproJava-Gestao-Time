@@ -1,7 +1,6 @@
 package com.trybe.gestaotime.model;
 
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,10 +28,10 @@ public class Time {
   @Column(name = "nome")
   private String nome;
 
-  @OneToMany(mappedBy = "time", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @OneToMany
   private List<Jogador> jogadores;
 
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @ManyToMany
   @JoinTable(name = "relacionamento_time_torcedor",
           joinColumns = {@JoinColumn(name = "time_id")},
           inverseJoinColumns = {@JoinColumn(name = "torcedor_id")})

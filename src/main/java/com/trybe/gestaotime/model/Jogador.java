@@ -4,7 +4,6 @@ package com.trybe.gestaotime.model;
  * Classe Jogador.
  **/
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +31,7 @@ public class Jogador {
   @Column(name = "posicao")
   private String posicao;
 
-  @OneToOne(cascade = CascadeType.ALL)
+  @OneToOne
   @JoinColumn(name = "documento_id")
   private Documento documento;
 

@@ -28,7 +28,7 @@ public class Torcedor {
   @Column(name = "nome")
   private String nome;
 
-  @ManyToMany(mappedBy = "torcedores")
+  @ManyToMany
   private List<Time> times;
 
   /**
